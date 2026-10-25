@@ -1,0 +1,22 @@
+{
+  "name": "kevin-2016-workshop",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "playwright test",
+    "fonts": "uv run --with fonttools --with brotli python scripts/build-fonts.py"
+  },
+  "dependencies": {
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/three": "*",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  }
+}

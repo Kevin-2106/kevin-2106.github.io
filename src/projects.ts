@@ -1,0 +1,90 @@
+export type Project = {
+  id: string; name: string; subtitle: string; category: '桌面' | '硬件' | '文件' | '创作';
+  platform: string; tagline: string; description: string; tags: string[];
+  features: string[]; steps: string[]; note: string; command?: string;
+  repo?: string; download?: string; live?: string; liveLabel?: string; local?: boolean;
+};
+
+export const projects: Project[] = [
+  {
+    id: 'lyrscape', name: 'Lyrscape', subtitle: 'YOUR LYRICS. YOUR LANDSCAPE.', category: '桌面', platform: 'Windows',
+    tagline: '让歌词，走出播放器。',
+    description: '一个可以自由组合的桌面歌词宿主。把逐行、逐字歌词铺在桌面上，用不同的渲染器，让每一首歌拥有自己的画面。',
+    tags: ['桌面歌词', 'AMLL / SMTC', '插件化'],
+    features: ['透明置顶歌词层，支持鼠标穿透与位置编辑。', '接收 AMLL 播放信息，或从 Windows 系统媒体会话取得曲目与进度。', '导入 LRC、TTML 与纯文本，自由调整字体、渐变与歌词偏移。', '普通文字、Aurora 与文字 PV 渲染器；播放接入和视觉效果分别配置。'],
+    steps: ['从 GitHub Releases 下载 Windows 安装包或便携版。', '选择系统媒体来源，或启动 AMLL 接收并在播放器 Connector 中填写本机地址。', '搜索或导入歌词，调整样式，然后打开桌面歌词层。'],
+    note: '需要 WebView2 Runtime。浏览器预览不提供原生桌面歌词层；当前只接收播放信息。',
+    repo: 'Lyrscape', download: 'https://github.com/Kevin-2106/Lyrscape/releases', live: 'https://kevin-2106.github.io/Lyrscape/', liveLabel: '使用与插件',
+    command: 'npm ci\nnpm run desktop:dev',
+  },
+  {
+    id: 'betop', name: '北通轻智控', subtitle: 'CONTROLLER, WITHOUT THE EXTRA.', category: '硬件', platform: 'Windows · KP70C1',
+    tagline: '让手柄智控，轻一点。',
+    description: '独立管理北通官方游戏适配模块。识别游戏、按需下载、自动启停，让手柄效果回到游戏里。',
+    tags: ['游戏进程识别', '模块更新', '版本回退'],
+    features: ['复用官方适配程序，无需启动北通游戏厅。', '游戏启动与手柄连接时按规则运行模块，退出后清理自己启动的进程。', '按已启用游戏下载所需程序包，保留旧版本供回退。', '系统托盘常驻，提供效果设置、手动停止和自动模式。'],
+    steps: ['在已配置的本机项目目录双击「打开管理器.cmd」。', '连接支持的手柄，选择游戏并检查进程名与效果设置。', '启用自动管理后启动游戏；也可手动启动、停止或回退模块版本。'],
+    note: '个人本地作品，尚未公开分发。当前主要针对北通鲲鹏 70 异环联名版；游戏目录接入不代表逐款完成效果验收。非北通官方产品。',
+    command: 'uv sync --frozen\nuv run python app.py', local: true,
+  },
+  {
+    id: 'openlistfs', name: 'OpenListFS', subtitle: 'REMOTE FILES. LOCAL RHYTHM.', category: '文件', platform: 'Windows · WinFsp',
+    tagline: '把远端文件，接到本地。',
+    description: '把 OpenList 接成 Windows 盘符，围绕大文件读取与视频拖动优化。用熟悉的文件管理器，打开远端的文件。',
+    tags: ['虚拟文件系统', 'HTTP Range', '多盘符'],
+    features: ['原生 OpenList API 与 HTTP Range 读取，提供缓存与预读。', '桌面连接管理、多盘符挂载、托盘和明暗外观。', '支持代理与 IPv4 / IPv6 选择；WebDAV、S3 后端仍属实验功能。', '默认只读；可选写入模式在关闭文件时上传。'],
+    steps: ['在 Windows 上安装 WinFsp 2.0+，按仓库说明构建或启动客户端。', '添加 OpenList 服务地址与自己的凭证，选一个空闲盘符。', '保存并挂载，在资源管理器或播放器中打开文件。'],
+    note: '实验项目。写入缓冲不提供崩溃一致性或多写者协调；优先使用默认只读模式。',
+    repo: 'OpenlistFS', command: 'openlistfs probe\nopenlistfs mount O:',
+  },
+  {
+    id: 'door', name: '门钥', subtitle: 'ONE TAP. WELCOME HOME.', category: '硬件', platform: 'Android · BLE / NFC',
+    tagline: '开门这件事，可以更直接。',
+    description: '面向住理生活门锁的个人 BLE 开门工具。点击、桌面小组件或 NFC 标签，把日常进门的步骤缩短。',
+    tags: ['蓝牙开门', '桌面小组件', 'NFC 标签'],
+    features: ['感应场主界面，点击中央即可发起 BLE 开门。', '支持桌面小组件与自写 NFC 标签入口。', '登录自己的账号获取门锁参数，或手动填写已有凭证。', '数据保存在设备本地，不收集或上传个人开门数据。'],
+    steps: ['从 Releases 选择公开版 APK，安装到支持 BLE 的 Android 手机。', '使用自己的住理生活账号配置已获授权门锁的凭证。', '点击主界面或小组件开门；NFC 功能按仓库说明单独配置。'],
+    note: '仅用于自己获授权使用的门锁。不同 APK 变体的 NFC 行为不同，公开版不支持门锁自带标签的免打开 App 分发。',
+    repo: 'SEU-Door-Unlock', download: 'https://github.com/Kevin-2106/SEU-Door-Unlock/releases',
+  },
+  {
+    id: 'ntqlean', name: 'NTQlean', subtitle: 'LESS CLUTTER. MORE CLARITY.', category: '文件', platform: 'Windows · NTQQ',
+    tagline: '先看清，再清理。',
+    description: '给 NTQQ 本地存储做一次有依据的整理。按会话、类型、时间和大小梳理媒体，先预演，再把选中的文件送进回收站。',
+    tags: ['本地分析', '清理预演', '回收站恢复'],
+    features: ['以只读方式分析 QQ 原始文件，通过数据库副本建立媒体索引。', '按类型、时间、大小和会话筛选，辅助识别无引用媒体。', '默认预演，实际清理移入回收站并生成 manifest。', '不联网、无遥测，账号密钥只保留在运行内存中。'],
+    steps: ['按仓库说明启动工具，选择本人本机的 QQ 数据目录。', '完成只读分析后，查看媒体分布并设定筛选条件。', '先查看清理预演，确认范围后再执行回收站式清理。'],
+    note: '仅分析自己的账号数据，清理前备份重要内容。这是独立社区工具，与腾讯无关联。',
+    repo: 'NTQlean',
+  },
+  {
+    id: 'fltwink', name: 'FLTwink', subtitle: 'MAKE YOUR KEYBOARD A CANVAS.', category: '硬件', platform: 'Windows · MK870',
+    tagline: '让键盘，也有自己的画面。',
+    description: '腹灵 MK870 的本地灯光工作台。从逐键颜色到音乐频谱、封面取色，再到把视频映射到键盘。',
+    tags: ['逐键灯光', '音频响应', '视频映射'],
+    features: ['逐键选色、图层覆盖与预设保存；默认只预览。', '系统播放音频驱动频谱、音量条和节拍灯效。', '从系统媒体封面提取配色，或将本地视频映射到真实键位。', '原生 HID 后端与渲染分离，桌面版不监听本地 HTTP 端口。'],
+    steps: ['在已取得源码的本机目录运行 uv sync --frozen。', '双击 start.cmd，或用命令启动桌面工作台。', '先预览灯效，明确点击「发送到键盘」后才开始设备输出。'],
+    note: '个人本地作品，尚未公开分发。面向 MK870，持续运行的长时稳定性仍待实机验证。',
+    command: 'uv sync --frozen\nuv run python -m fltwink.desktop', local: true,
+  },
+  {
+    id: 'bakopacker', name: 'BakoPacker', subtitle: 'BUILD A PACK. MAKE IT YOURS.', category: '创作', platform: 'Web · Phira / prpr',
+    tagline: '把想法，打成一个资源包。',
+    description: '在浏览器中制作 Phira / prpr 资源包。拖入皮肤与音效，调整长条切片，边看下落效果边完成打包。',
+    tags: ['资源包编辑', '实时预览', '浏览器内处理'],
+    features: ['填写资源包信息，拖入 PNG 皮肤与可选 OGG 音效。', '预览不同音符、判定颜色与击中特效。', '可视化调整 hold atlas，确认长条头、身、尾的切分。', '在浏览器中处理并导出可用 ZIP，不必上传原始素材。'],
+    steps: ['直接打开在线工具，填写资源包名称、作者和说明。', '放入必需皮肤及可选音效，在实时预览中调整效果。', '确认 hold atlas 与判定颜色，导出 ZIP 后放入游戏。'],
+    note: '普通编辑在浏览器本地完成；只有主动选择上传到托管站时才会发送资源包。',
+    repo: 'BakoPacker', live: 'https://kevin-2106.github.io/BakoPacker/',
+  },
+  {
+    id: 'coldshelf', name: 'ColdShelf', subtitle: 'SOME THINGS CAN WAIT.', category: '文件', platform: 'Windows · PowerShell 7.4+',
+    tagline: '暂时不用，先放上冷架。',
+    description: '把不常用的目录收进经过校验的 TAR，等需要时再恢复到原路径。给工具链、大型软件和旧项目腾一点空间。',
+    tags: ['冷热归档', 'SHA-256 校验', '原路径恢复'],
+    features: ['使用 Windows 自带 tar.exe 创建未压缩 TAR。', '归档保存逐文件 SHA-256 manifest，校验通过后才允许移除源目录。', '恢复前校验内容，目标只要存在就拒绝覆盖。', '提供列表、完整校验与诊断命令，归档索引可以重建。'],
+    steps: ['在源码目录运行 install.ps1，重开终端确认 coldshelf 命令可用。', '配置归档位置，停止目录对应应用，用 cold --keep 先保留原件归档。', '通过 verify --full 检查，之后按需使用 hot 恢复。'],
+    note: '目录归档工具，不替代多副本备份；使用前应停止仍在写入该目录的应用。',
+    repo: 'ColdShelf', command: 'coldshelf cold "D:\\Projects\\OldGame" --keep\ncoldshelf verify OldGame --full\ncoldshelf hot OldGame',
+  },
+];
