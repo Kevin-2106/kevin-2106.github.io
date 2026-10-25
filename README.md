@@ -29,3 +29,15 @@ npm run dev
 `npm test` 使用已安装的 Edge 或通过 `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` 指定 Chromium，验证响应式布局、作品顺序、分类、档案关闭、深链接、动画开关与减少动态偏好。
 
 设计采用 ReEndfield 的开放设计关系；独立实现动效和图形，未发布研究用游戏资产。完整致谢和原始字体许可见 `public/credits.html` 与 `public/licenses/`。
+
+## 可运行的作品体验
+
+Lyrscape 卡片使用项目生产版 DOM renderer、LRC/TTML parser 与 timeline，来源及适配记录见 `src/vendor/lyrscape/PROVENANCE.json`。固定歌词位于 `public/demo/arrow.lrc`，来自站点所有者的本机文件。没有打包歌曲音频，也没有从网络抓取歌词。歌词为逐行格式，不虚构逐字时间戳。
+
+播放器直接使用 HTMLAudioElement.currentTime 驱动歌词，缓冲时不会自行前进；暂停、拖动、重播均同步。网易云《arrow》官方外链当前不可用，界面如实提示，并提供网易云收听入口、本地音频和明确标注的无声预览。本地文件只创建 blob URL，不上传；离开作品筛选时释放音频与渲染器。
+
+BakoPacker 作品档案可主动载入真实在线编辑器并导出资源包，首页不预加载 iframe。
+
+`LOCAL_ARROW_AUDIO` 可指向本机所选歌曲文件，用于额外的真实音频浏览器检查；测试不会提交该路径或文件。
+
+修改固定日语歌词后，可运行 `npm run fonts:ja` 重建日文字形子集，默认读取相邻 Lyrscape 安装的 @fontsource/noto-sans-jp；也可用 --source 指定 Lyrscape 目录。再运行 npm run fonts 更新中文界面字形。

@@ -1,5 +1,6 @@
 import './style.css';
 import { projects, type Project } from './projects';
+import { lyricDemoMarkup, mountLyrscapeDemo } from './lyrscape-demo';
 
 const arrow = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" stroke-width="1.7"/></svg>';
 const down = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6" stroke="currentColor" stroke-width="1.5"/></svg>';
@@ -55,21 +56,25 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 `;
 
 function visual(p: Project) {
-  if (p.id === 'lyrscape') return `<div class="lyric-art" aria-hidden="true"><div class="lyric-top"><span>LYRSCAPE / VISUAL STUDY</span><span>♪</span></div><div class="lyric-orbit"></div><div class="lyrics"><span class="lyric-previous">让每一个字</span><span class="lyric-current">都找到自己的节奏</span><span class="lyric-next">你的歌词，你的风景</span></div><div class="lyric-progress"><i></i></div><div class="lyric-bottom"><span>DESKTOP LYRICS</span><span>AMLL + SMTC</span></div></div>`;
+  if (p.id === 'lyrscape') return lyricDemoMarkup();
   if (p.id === 'betop') return `<div class="device-art" aria-hidden="true"><div class="device-grid"></div><svg viewBox="0 0 360 220" class="controller-visual"><path d="M105 65C71 60 65 92 46 155c-12 41 10 54 33 29l38-37h126l38 37c23 25 45 12 33-29-19-63-25-95-59-90Z" fill="#242925" stroke="#dfe5d9" stroke-width="1.5"/><path d="M125 65c12 8 98 8 110 0M94 78l-16 39M267 78l16 39" fill="none" stroke="#637367"/><circle cx="137" cy="113" r="21" fill="#161a17" stroke="#fffa00"/><circle cx="220" cy="151" r="21" fill="#161a17" stroke="#b1baad"/><path d="M126 151h20m-10-10v20" stroke="#c5ccbf" stroke-width="5"/><circle cx="252" cy="103" r="5" fill="#fffa00"/><circle cx="268" cy="118" r="5" fill="#777f72"/><circle cx="236" cy="118" r="5" fill="#777f72"/><circle cx="252" cy="133" r="5" fill="#777f72"/><path d="M177 101h6m-14 24h22" stroke="#a7b29f" stroke-width="2"/></svg><span class="device-callout">LIGHTER CONTROL</span><div class="signal-track"><i></i><i></i><i></i><i></i><i></i></div><span class="art-footnote">原创示意 / 非产品截图</span></div>`;
   if (p.id === 'openlistfs') return `<div class="file-art" aria-hidden="true"><div class="file-flow"><span>CLOUD</span><i></i><b>O:</b><i></i><span>DESKTOP</span></div><div class="file-window"><div><span>OpenListFS</span><i></i><i></i><i></i></div><p><span>▸</span> Movies <small>NETWORK DRIVE</small></p><p><span>▸</span> Archive <small>READ ONLY</small></p><p><span>▸</span> Workspace <small>ON DEMAND</small></p><footer><i></i> REMOTE FILES, FAMILIAR PLACE.</footer></div><span class="art-footnote">原创示意 / 非产品截图</span></div>`;
   return '';
 }
 
+let lyricDemo: ReturnType<typeof mountLyrscapeDemo> | undefined;
 function renderProjects(category = '全部') {
+  lyricDemo?.dispose(); lyricDemo = undefined;
   const list = projects.filter(p => category === '全部' || p.category === category);
   document.querySelector('#project-grid')!.innerHTML = list.map(p => {
     const i = projects.indexOf(p);
     return `<article class="project ${i === 0 ? 'project-featured' : i < 3 ? 'project-spotlight' : 'project-row'}" data-project="${p.id}">
       <div class="project-body"><div class="project-meta"><span class="project-number">${number(p)}<i>/</i></span><span>${p.platform}</span><span class="project-category">${p.category}</span></div>
-      <div class="project-name">${i > 2 ? `<span class="project-icon">${icon(p.id)}</span>` : ''}<div><h3>${p.name}</h3><p class="project-subtitle">${p.subtitle}</p></div></div><h4>${p.tagline}</h4><p class="project-description">${p.description}</p><div class="project-tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div><div class="project-actions"><button type="button" class="project-open" data-open="${p.id}">了解与使用${arrow}<span class="sr-only"> ${p.name}</span></button>${p.local ? '<span class="local-status">本地作品 / 尚未公开</span>' : external(p.live || `https://github.com/Kevin-2106/${p.repo}`, p.live ? (p.liveLabel || '在线打开') : 'GitHub', 'project-source')}</div></div>
+      <div class="project-name">${i > 2 ? `<span class="project-icon">${icon(p.id)}</span>` : ''}<div><h3>${p.name}</h3><p class="project-subtitle">${p.subtitle}</p></div></div><h4>${p.tagline}</h4><p class="project-description">${p.description}</p><div class="project-tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div><div class="project-actions"><button type="button" class="project-open" data-open="${p.id}">了解与使用${arrow}<span class="sr-only"> ${p.name}</span></button>${p.id === 'bakopacker' ? `<button type="button" class="project-inline-demo" data-open="bakopacker">站内体验${arrow}</button>` : ''}${p.local ? '<span class="local-status">本地作品 / 尚未公开</span>' : external(p.live || `https://github.com/Kevin-2106/${p.repo}`, p.live ? (p.liveLabel || '在线打开') : 'GitHub', 'project-source')}</div></div>
       ${i < 3 ? `<div class="project-visual">${visual(p)}</div>` : `<button class="row-open" data-open="${p.id}" type="button" aria-label="查看 ${p.name} 的介绍与使用">${arrow}</button>`}</article>`;
   }).join('');
+  const demoRoot = document.querySelector<HTMLElement>('.lyrscape-demo');
+  if (demoRoot) lyricDemo = mountLyrscapeDemo(demoRoot);
   document.querySelector('#filter-status')!.textContent = `显示${category}作品，共 ${list.length} 个。`;
 }
 renderProjects();
@@ -85,7 +90,13 @@ function openProject(id: string) {
   const p = projects.find(p => p.id === id);
   if (!p) return;
   previousFocus = document.activeElement as HTMLElement;
-  document.querySelector('#dialog-content')!.innerHTML = `<div class="dialog-header"><p class="eyebrow">PROJECT FILE / ${number(p)}</p><span class="dialog-platform">${p.platform}</span><h2 id="dialog-title">${p.name}</h2><p class="dialog-tagline">${p.tagline}</p><p class="dialog-description">${p.description}</p></div><div class="dialog-grid"><section><h3><span>01</span> 它能做什么</h3><ul>${p.features.map(f => `<li>${f}</li>`).join('')}</ul></section><section><h3><span>02</span> 怎么开始</h3><ol>${p.steps.map(s => `<li>${s}</li>`).join('')}</ol></section></div>${p.command ? `<div class="command-block"><div><span>本机运行 / ${p.local ? '已取得源码时' : '命令示例'}</span><button type="button" id="copy-command">复制命令</button></div><pre><code>${esc(p.command)}</code></pre></div>` : ''}<p class="project-note"><span>使用前了解</span>${p.note}</p><div class="dialog-actions">${p.live ? external(p.live, p.liveLabel || '打开在线工具', 'button button-yellow') : ''}${p.download ? external(p.download, '前往 Releases', 'button button-yellow') : ''}${p.repo ? external(`https://github.com/Kevin-2106/${p.repo}`, '项目源码与完整说明', 'button button-outline') : '<span class="dialog-local">本地作品 · 暂无公开下载</span>'}</div>`;
+  document.querySelector('#dialog-content')!.innerHTML = `<div class="dialog-header"><p class="eyebrow">PROJECT FILE / ${number(p)}</p><span class="dialog-platform">${p.platform}</span><h2 id="dialog-title">${p.name}</h2><p class="dialog-tagline">${p.tagline}</p><p class="dialog-description">${p.description}</p></div><div class="dialog-grid"><section><h3><span>01</span> 它能做什么</h3><ul>${p.features.map(f => `<li>${f}</li>`).join('')}</ul></section><section><h3><span>02</span> 怎么开始</h3><ol>${p.steps.map(s => `<li>${s}</li>`).join('')}</ol></section></div>${p.command ? `<div class="command-block"><div><span>本机运行 / ${p.local ? '已取得源码时' : '命令示例'}</span><button type="button" id="copy-command">复制命令</button></div><pre><code>${esc(p.command)}</code></pre></div>` : ''}<p class="project-note"><span>使用前了解</span>${p.note}</p>${p.id === 'bakopacker' ? `<section class="interactive-entry"><h3>在这里，真的做一个资源包</h3><p>载入 BakoPacker 的完整网页编辑器。可拖入素材、调整预览并导出 ZIP，素材在浏览器内处理。</p><button type="button" id="load-bakopacker" class="button button-dark">启动在线编辑器${arrow}</button><div id="bakopacker-frame-slot"></div></section>` : ''}<div class="dialog-actions">${p.live ? external(p.live, p.liveLabel || '打开在线工具', 'button button-yellow') : ''}${p.download ? external(p.download, '前往 Releases', 'button button-yellow') : ''}${p.repo ? external(`https://github.com/Kevin-2106/${p.repo}`, '项目源码与完整说明', 'button button-outline') : '<span class="dialog-local">本地作品 · 暂无公开下载</span>'}</div>`;
+  document.querySelector('#load-bakopacker')?.addEventListener('click', event => {
+    const frame = document.createElement('iframe'); frame.src = 'https://kevin-2106.github.io/BakoPacker/'; frame.title = 'BakoPacker 在线资源包编辑器'; frame.className = 'interactive-frame'; frame.setAttribute('tabindex', '0');
+    document.querySelector('#bakopacker-frame-slot')!.replaceChildren(frame);
+    (event.currentTarget as HTMLButtonElement).hidden = true;
+    frame.scrollIntoView({ block: 'start', behavior: 'instant' }); frame.focus();
+  });
   if (!dialog.open) dialog.showModal();
   document.body.classList.add('dialog-is-open');
   dialog.scrollTop = 0;
@@ -144,4 +155,4 @@ if ('requestIdleCallback' in window) window.requestIdleCallback(startField, { ti
 const navLinks = document.querySelectorAll<HTMLAnchorElement>('nav a');
 new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) navLinks.forEach(a => { const active = a.hash === `#${entry.target.id}`; a.classList.toggle('current', active); if (active) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); }); }); }, { rootMargin: '-15% 0px -55% 0px' }).observe(document.querySelector('#projects')!);
 ['guide', 'about'].forEach(id => new IntersectionObserver(entries => { if (entries[0].isIntersecting) navLinks.forEach(a => { const active = a.hash === `#${id}`; a.classList.toggle('current', active); if (active) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); }); }, { rootMargin: '-15% 0px -40% 0px' }).observe(document.getElementById(id)!));
-window.addEventListener('pagehide', event => { if (!event.persisted) fieldController?.dispose(); });
+window.addEventListener('pagehide', event => { if (!event.persisted) { fieldController?.dispose(); lyricDemo?.dispose(); } });

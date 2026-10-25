@@ -11,6 +11,7 @@ fonts=SITE/'public'/'fonts'; fonts.mkdir(parents=True,exist_ok=True)
 license_dir=SITE/'public'/'licenses';license_dir.mkdir(parents=True,exist_ok=True)
 texts=[p for p in (SITE/'src').glob('*') if p.suffix in ('.ts','.css')]
 texts.extend([SITE/'index.html',SITE/'public'/'credits.html'])
+texts.extend((SITE/'public'/'demo').glob('*.lrc'))
 chars=set(''.join(p.read_text(encoding='utf-8') for p in texts))
 chars.update(chr(i) for i in range(32,256))
 chars.update('设置关闭开启已复制选择命令手动复制作品档案使用平台步骤查看源码在线打开暂无公开下载关于返回探索字体确认取消')

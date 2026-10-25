@@ -10,6 +10,11 @@ for (const width of [390, 768, 1440]) {
     await expect(page.locator('.project-name h3')).toHaveText(order);
     await page.evaluate(() => document.fonts.ready);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+    const contained = await page.locator('.lyrscape-demo').evaluate(root => {
+      const panel = root.getBoundingClientRect(), status = root.querySelector('.demo-status')!.getBoundingClientRect();
+      return status.bottom <= panel.bottom;
+    });
+    expect(contained).toBe(true);
     await page.getByRole('button', { name: '了解与使用 Lyrscape', exact: true }).click();
     await expect(page.getByRole('dialog')).toBeVisible();
     await expect(page.getByRole('dialog').getByRole('heading', { name: 'Lyrscape', exact: true })).toBeVisible();

@@ -1,0 +1,33 @@
+{
+  "project": "https://github.com/Kevin-2106/Lyrscape",
+  "commit": "7dfe37d57eb45b80ed0ffa6003c6e51c44469f96",
+  "license": "MIT",
+  "adaptation": "Retain production DOM renderer, lyric parsers and timeline. Remove desktop plugin registration, use a web font adapter and scope the renderer CSS.",
+  "files": [
+    {
+      "file": "types.ts",
+      "upstream_path": "src/sdk/types.ts",
+      "upstream_sha256": "7eb18c9538dc7aac767551d5c8d1c21b1bbb1e3956e642e493c18be2efc73f08"
+    },
+    {
+      "file": "parsers.ts",
+      "upstream_path": "src/plugins/parsers.ts",
+      "upstream_sha256": "c7466f6928443bf386edeb334926e151a22be428f95a649b0d8e13b5d73253aa"
+    },
+    {
+      "file": "renderer.ts",
+      "upstream_path": "src/plugins/renderer.ts",
+      "upstream_sha256": "a2915e969cc8937ebd31b588d98f6095adc54fb23250f3e30257044e9c921dba"
+    },
+    {
+      "file": "timeline.ts",
+      "upstream_path": "src/plugins/timeline.ts",
+      "upstream_sha256": "a2d3026f812e8dfc8192f9066f20201d00759f978899a77facf0a00e0b53a0a8"
+    },
+    {
+      "file": "renderer.css",
+      "upstream_path": "src/renderer.css",
+      "upstream_sha256": "d99bef2f3917c6c51636b3ea11b595564aa1f9d3d6b172aa9db9705ee8f3433b"
+    }
+  ]
+}
