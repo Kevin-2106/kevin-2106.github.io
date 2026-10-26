@@ -30,6 +30,9 @@ for package, weights in {'noto-sans-jp': [500, 700, 900], 'fusion-pixel-12px-pro
             subset.save_font(font, str(dest / filename), options)
             replacement = 'unicode-range:' + ','.join('U+'+format(c,'X') for c in sorted(points)) + ';'
             rule = re.sub(r'unicode-range:[^;]+;', replacement, rule) if ranges else rule[:-1] + replacement + '}'
+            # Modern browsers used by the canvas demo support WOFF2; do not ship
+            # the original, full WOFF fallback alongside a song-specific subset.
+            rule = re.sub(r",\s*url\([^)]*\.woff\)\s*format\('woff'\)", '', rule)
             css.append(rule.replace('url(./files/', 'url(/fonts/halo3/'))
     shutil.copy2(source / 'LICENSE', dest / f'{package}-OFL.txt')
 (site / 'src/halo3-fonts.css').write_text('\n'.join(css), encoding='utf8')

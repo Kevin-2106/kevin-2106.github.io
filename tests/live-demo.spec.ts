@@ -29,6 +29,7 @@ test('official LRC uses production Halo3 canvas and accurate line selection', as
   await expect(demo.locator('.demo-stage')).toHaveAttribute('data-active-line', String(expectedLine(60000)));
   await expect(demo.locator('.demo-stage')).toHaveAttribute('data-pv-style', 'halo3');
   await expect(demo.locator('.pv-canvas')).toBeVisible();
+  await expect(demo.locator('.demo-stage')).toHaveCSS('background-color', 'rgb(29, 35, 30)');
   await demo.getByLabel('歌词构图', { exact: true }).selectOption('hero');
   await expect(demo.locator('.demo-stage')).toHaveAttribute('data-pv-mode', 'hero');
   await demo.getByLabel('歌词构图', { exact: true }).selectOption('caption');

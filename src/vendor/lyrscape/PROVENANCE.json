@@ -45,6 +45,7 @@
     "adaptation": "Import paths; extracted normalizeConfig; static subset font registration. Original halo3, stage, paint and timing logic retained.",
     "lyricSource": "https://web.hycdn.cn/siren/lyric/20250430/cfd84e70b19dc9a47fdf3d4c00341a63.lrc",
     "lyrics": "Fetched at runtime from MSR; not bundled.",
-    "audio": "Anonymous NetEase outer link 2699629221; no audio file bundled."
+    "audio": "Anonymous NetEase outer link 2699629221; no audio file bundled.",
+    "presentation": "Original glyph animation on the homepage dark engineering grid; sky-blue full background replaced. Modern browsers use fixed-song WOFF2 subsets only."
   }
 }
