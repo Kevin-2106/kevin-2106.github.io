@@ -43,3 +43,9 @@ BakoPacker 作品档案可主动载入真实在线编辑器并导出资源包，
 北通卡片展示官方启动器到精简管理器的关系示意，非软件截图。`public/betop-memory.json` 记录 2026-10-26 的本机空闲采样条件、13 次中位数、完整进程树 Private Bytes 与单独的 Working Set；不把空闲管理开销解释为游戏效果等价或长时间稳定性。
 
 界面中文字体通过 `npm run fonts` 重建。Halo3 字体来自相邻 Lyrscape 安装的 @fontsource，静态注册其原始 family 与 unicode-range，许可随文件发布。
+
+## 同类方案与使用取舍
+
+`src/comparisons.ts` 维护各项目的替代方案、优势、边界与官方来源；作品档案展示完整对比，Lyrscape / OpenListFS / ColdShelf 卡片附简短选择理由。对比按场景组织，不宣称未经同条件测试的性能领先。Lyricify 4、Fusion 与 Mobile 的定位分开说明。
+
+ColdShelf 的个人场景是 SSD + HDD：常用目录放 SSD，暂时不用且使用时依赖随机读写性能的大目录冷归档到 HDD，需要时恢复至原 SSD 路径。`--keep` 不移除原件，也不会释放 SSD 空间；默认 cold 在内容校验后交互询问是否移除。页面命令中的 D: / E: 仅为盘符示例。
