@@ -2,7 +2,7 @@
   "project": "https://github.com/Kevin-2106/Lyrscape",
   "commit": "7dfe37d57eb45b80ed0ffa6003c6e51c44469f96",
   "license": "MIT",
-  "adaptation": "Retain production DOM renderer, lyric parsers and timeline. Remove desktop plugin registration, use a web font adapter and scope the renderer CSS.",
+  "adaptation": "Reuse production Halo3 canvas/PV stage, lyric parsers, timeline and language-aware typeface. Extract normalizeConfig; adjust imports; use fixed-song static OFL font subsets. Existing DOM renderer supplies shared activeLine/timing helpers.",
   "files": [
     {
       "file": "types.ts",
@@ -29,5 +29,22 @@
       "upstream_path": "src/renderer.css",
       "upstream_sha256": "d99bef2f3917c6c51636b3ea11b595564aa1f9d3d6b172aa9db9705ee8f3433b"
     }
-  ]
+  ],
+  "halo3": {
+    "files": {
+      "src\\plugins\\pv\\stage.ts": "bb8a9ade7458b5bfb7934b8f4c67df7cc7c8d5da3c648bb116b862e52fef6e09",
+      "src\\plugins\\pv\\halo3.ts": "c7935a42a6793af876d7cf47d42cda6f0d8e529f29cf3b4da2f5196b3846f613",
+      "src\\plugins\\pv\\halo.ts": "cc4d2c5d66f3c02be825ecdd2fbac52704e20313268b3935b6afb3d5b906c4d2",
+      "src\\plugins\\pv\\core.ts": "4f3ef697db853be666439d355f899133a37017a4328d9ec53a8e5669277f9bdb",
+      "src\\plugins\\pv\\pixel.ts": "eb66d5db1753a03d1494c842fe5d65b7162191c79e6c5db8a74572408ee4c43c",
+      "src\\plugins\\pv\\paint.ts": "a672937dd97c0225e69efbf44666fe7c929b57a99b0ec3ca93ef7a14004e85f1",
+      "src\\plugins\\pv\\fonts.ts": "745aed3836a3561bb3cd1901abb56bc314e8a6eb9003db90c8e5ca48484a5945",
+      "src\\plugins\\typeface.ts": "568f817e24e9d20e8de08314ddd57f86b9c75ee873f6be663d0e91b11d918dec",
+      "src\\plugins\\pv-presets.ts": "6aa5fab8d1c35163e58f4ba7c787cc182bf8f6d3e33d7bd2f2ddfd2d17ed7596"
+    },
+    "adaptation": "Import paths; extracted normalizeConfig; static subset font registration. Original halo3, stage, paint and timing logic retained.",
+    "lyricSource": "https://web.hycdn.cn/siren/lyric/20250430/cfd84e70b19dc9a47fdf3d4c00341a63.lrc",
+    "lyrics": "Fetched at runtime from MSR; not bundled.",
+    "audio": "Anonymous NetEase outer link 2699629221; no audio file bundled."
+  }
 }

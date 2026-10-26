@@ -1,8 +1,13 @@
 import { test, expect } from '@playwright/test';
-import { readFileSync } from 'node:fs';
 import { parseLyrics } from '../src/vendor/lyrscape/parsers';
 
-const lyrics = parseLyrics(readFileSync(new URL('../public/demo/arrow.lrc', import.meta.url), 'utf8'), 'arrow.lrc');
+const lyricUrl = 'https://web.hycdn.cn/siren/lyric/20250430/cfd84e70b19dc9a47fdf3d4c00341a63.lrc';
+let lyrics: ReturnType<typeof parseLyrics>;
+test.beforeAll(async ({ request }) => {
+  const response = await request.get(lyricUrl);
+  expect(response.ok()).toBe(true);
+  lyrics = parseLyrics(await response.text(), 'Heavenly Me.lrc');
+});
 function expectedLine(at: number) { return lyrics.lines.findLastIndex(line => (line.startMs ?? Infinity) <= at && (line.endMs === undefined || at < line.endMs)); }
 function silentWav(seconds = 45) {
   const samples = seconds * 8000;
@@ -13,7 +18,7 @@ function silentWav(seconds = 45) {
   data.write('data', 36); data.writeUInt32LE(samples * 2, 40);
   return data;
 }
-test('fixed LRC uses the production renderer and accurate line selection', async ({ page }) => {
+test('official LRC uses production Halo3 canvas and accurate line selection', async ({ page }) => {
   await page.goto('/#projects');
   const demo = page.locator('.lyrscape-demo');
   await expect(demo).toHaveAttribute('data-ready', 'true');
@@ -22,9 +27,12 @@ test('fixed LRC uses the production renderer and accurate line selection', async
   await demo.scrollIntoViewIfNeeded();
   await demo.locator('.demo-position').evaluate((input: HTMLInputElement) => { input.value = '60000'; input.dispatchEvent(new Event('input', { bubbles: true })); });
   await expect(demo.locator('.demo-stage')).toHaveAttribute('data-active-line', String(expectedLine(60000)));
-  await expect(demo.locator('.lyric-word')).toHaveCount(0);
-  await demo.getByLabel('歌词配色', { exact: true }).selectOption('white');
-  await expect(demo.locator('.demo-stage')).toHaveCSS('--lyric-color', '#f3f5ef');
+  await expect(demo.locator('.demo-stage')).toHaveAttribute('data-pv-style', 'halo3');
+  await expect(demo.locator('.pv-canvas')).toBeVisible();
+  await demo.getByLabel('歌词构图', { exact: true }).selectOption('hero');
+  await expect(demo.locator('.demo-stage')).toHaveAttribute('data-pv-mode', 'hero');
+  await demo.getByLabel('歌词构图', { exact: true }).selectOption('caption');
+  await expect(demo.locator('.demo-stage')).toHaveAttribute('data-pv-mode', 'caption');
 });
 test('silent preview advances, pauses and remains distinct from audio', async ({ page }) => {
   await page.goto('/#projects');
@@ -44,7 +52,7 @@ test('blocked external stream reports the real failure without fake playback', a
   await page.goto('/#projects');
   const demo = page.locator('.lyrscape-demo');
   await expect(demo).toHaveAttribute('data-ready', 'true');
-  await demo.getByRole('button', { name: '试听 arrow', exact: true }).click();
+  await demo.getByRole('button', { name: '试听 Heavenly Me', exact: true }).click();
   await expect(demo.locator('.demo-status')).toContainText('暂不支持网易云外链');
   await expect(demo).toHaveAttribute('data-mode', 'idle');
   await expect(demo.locator('audio')).toHaveJSProperty('paused', true);
@@ -54,17 +62,17 @@ test('local media drives lyrics, supports seeking and stops on filtering', async
   const demo = page.locator('.lyrscape-demo');
   await expect(demo).toHaveAttribute('data-ready', 'true');
   await demo.locator('input[type=file]').setInputFiles({ name: 'synchronization-fixture.wav', mimeType: 'audio/wav', buffer: silentWav() });
-  await demo.getByRole('button', { name: '播放本地 arrow', exact: true }).click();
+  await demo.getByRole('button', { name: '播放本地 Heavenly Me', exact: true }).click();
   const audio = demo.locator('audio');
   await expect.poll(() => audio.evaluate((el: HTMLAudioElement) => el.currentTime)).toBeGreaterThan(0.1);
   await demo.locator('.demo-position').evaluate((input: HTMLInputElement) => { input.value = '20000'; input.dispatchEvent(new Event('input', { bubbles: true })); });
   await expect.poll(() => audio.evaluate((el: HTMLAudioElement) => el.currentTime)).toBeGreaterThan(19.9);
-  await demo.getByRole('button', { name: '暂停 arrow', exact: true }).click();
+  await demo.getByRole('button', { name: '暂停 Heavenly Me', exact: true }).click();
   const time = await audio.evaluate((el: HTMLAudioElement) => el.currentTime * 1000);
   await page.waitForTimeout(180);
   expect(Math.abs(Number(await demo.locator('.demo-position').inputValue()) - time)).toBeLessThan(110);
   await expect(demo.locator('.demo-stage')).toHaveAttribute('data-active-line', String(expectedLine(time)));
-  await demo.getByRole('button', { name: '播放本地 arrow', exact: true }).click();
+  await demo.getByRole('button', { name: '播放本地 Heavenly Me', exact: true }).click();
   const oldAudio = await audio.elementHandle();
   await page.getByRole('button', { name: '硬件 03', exact: true }).click();
   expect(await oldAudio!.evaluate((el: HTMLAudioElement) => el.paused)).toBe(true);
@@ -79,19 +87,34 @@ test('BakoPacker opens its real editor only after explicit activation', async ({
   await expect(page.locator('.interactive-frame')).toHaveAttribute('src', 'https://kevin-2106.github.io/BakoPacker/');
   await expect(page.getByTitle('BakoPacker 在线资源包编辑器')).toBeVisible();
 });
-test('owner-selected arrow audio works without any media upload', async ({ page }) => {
-  test.skip(!process.env.LOCAL_ARROW_AUDIO, 'Optional physical test with the owner-selected local song.');
+test('owner-selected Heavenly Me audio works without any media upload', async ({ page }) => {
+  test.skip(!process.env.LOCAL_HEAVENLY_AUDIO, 'Optional physical test with the owner-selected local song.');
   const uploads: string[] = [];
   page.on('request', request => { if (request.method() === 'POST' || request.method() === 'PUT') uploads.push(request.url()); });
   await page.goto('/#projects');
   const demo = page.locator('.lyrscape-demo');
   await expect(demo).toHaveAttribute('data-ready', 'true');
-  await demo.locator('input[type=file]').setInputFiles(process.env.LOCAL_ARROW_AUDIO!);
-  await demo.getByRole('button', { name: '播放本地 arrow', exact: true }).click();
+  await demo.locator('input[type=file]').setInputFiles(process.env.LOCAL_HEAVENLY_AUDIO!);
+  await demo.getByRole('button', { name: '播放本地 Heavenly Me', exact: true }).click();
   await expect.poll(() => demo.locator('audio').evaluate((el: HTMLAudioElement) => el.currentTime)).toBeGreaterThan(0.15);
   await demo.locator('.demo-position').evaluate((input: HTMLInputElement) => { input.value = '90000'; input.dispatchEvent(new Event('input', { bubbles: true })); });
-  await demo.getByRole('button', { name: '暂停 arrow', exact: true }).click();
+  await demo.getByRole('button', { name: '暂停 Heavenly Me', exact: true }).click();
   const at = await demo.locator('audio').evaluate((el: HTMLAudioElement) => el.currentTime * 1000);
   await expect(demo.locator('.demo-stage')).toHaveAttribute('data-active-line', String(expectedLine(at)));
   expect(uploads).toEqual([]);
+});
+
+test('Heavenly Me anonymous external audio really plays and seeks', async ({ page }) => {
+  await page.goto('/#projects');
+  const demo = page.locator('.lyrscape-demo');
+  await expect(demo).toHaveAttribute('data-ready', 'true');
+  await demo.getByRole('button', { name: '试听 Heavenly Me', exact: true }).click();
+  const audio = demo.locator('audio');
+  await expect.poll(() => audio.evaluate((el: HTMLAudioElement) => el.currentTime), { timeout: 20000 }).toBeGreaterThan(.15);
+  await demo.locator('.demo-position').evaluate((input: HTMLInputElement) => { input.value = '28000'; input.dispatchEvent(new Event('input', { bubbles: true })); });
+  await expect.poll(() => audio.evaluate((el: HTMLAudioElement) => el.currentTime)).toBeGreaterThan(27.9);
+  await demo.getByRole('button', { name: '暂停 Heavenly Me', exact: true }).click();
+  const at = await audio.evaluate((el: HTMLAudioElement) => el.currentTime * 1000);
+  await expect(demo.locator('.demo-stage')).toHaveAttribute('data-active-line', String(expectedLine(at)));
+  await expect(demo.locator('.demo-stage')).toHaveAttribute('data-pv-style', 'halo3');
 });

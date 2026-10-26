@@ -1,14 +1,17 @@
-import { createDomRenderer } from './vendor/lyrscape/renderer';
+import { activeLine } from './vendor/lyrscape/renderer';
+import { createPvStage } from './vendor/lyrscape/pv/stage';
+import { halo3Style } from './vendor/lyrscape/pv/halo3';
+import { pvFields, pvProfiles } from './vendor/lyrscape/pv-presets';
+import './halo3-fonts.css';
 import { parseLyrics } from './vendor/lyrscape/parsers';
 import { timeline } from './vendor/lyrscape/timeline';
 import type { AppState, Timeline } from './vendor/lyrscape/types';
-import './lyrscape-jp.css';
 import './lyrscape-demo.css';
 
-export const ARROW = {
-  id: '3325110244', duration: 188738,
-  page: 'https://music.163.com/song?id=3325110244',
-  stream: 'https://music.163.com/song/media/outer/url?id=3325110244.mp3',
+export const HEAVENLY = {
+  id: '2699629221', duration: 191327,
+  page: 'https://music.163.com/song?id=2699629221',
+  stream: 'https://music.163.com/song/media/outer/url?id=2699629221.mp3',
 };
 const playIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7V5Z" fill="currentColor"/></svg>';
 const pauseIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z" fill="currentColor"/></svg>';
@@ -16,13 +19,13 @@ const timeLabel = (ms: number) => `${Math.floor(ms / 60000)}:${String(Math.floor
 
 export function lyricDemoMarkup() {
   return `<div class="lyrscape-demo" data-mode="idle">
-    <div class="demo-top"><span><i></i> LYRSCAPE / LIVE RENDERER</span><a href="${ARROW.page}" target="_blank" rel="noopener noreferrer">网易云收听 ↗</a></div>
-    <div class="demo-track"><span class="demo-track-icon" aria-hidden="true">↗</span><div><p>arrow</p><span>TOGENASHI TOGEARI / トゲナシトゲアリ</span></div><span class="demo-track-type">LRC<br>LIVE</span></div>
+    <div class="demo-top"><span><i></i> LYRSCAPE / 晴空终端 III</span><a href="${HEAVENLY.page}" target="_blank" rel="noopener noreferrer">网易云收听 ↗</a></div>
+    <div class="demo-track"><span class="demo-track-icon" aria-hidden="true">↗</span><div><p>Heavenly Me</p><span>AIYUE blessed : 理名 / 塞壬唱片-MSR</span></div><span class="demo-track-type">LRC<br>LIVE</span></div>
     <div class="demo-stage" role="region" aria-label="Lyrscape 实时歌词" tabindex="0"><p class="demo-waiting">正在准备歌词…</p></div>
-    <div class="demo-options"><label>配色<select class="demo-palette" aria-label="歌词配色"><option value="yellow">工业黄</option><option value="aurora">极光渐变</option><option value="white">纯白</option></select></label><label class="demo-size-label">字号<input class="demo-size" type="range" min="20" max="40" step="1" value="27" aria-label="歌词字号"></label><button type="button" class="demo-restart" aria-label="回到歌曲开头">↺</button></div>
-    <div class="demo-scrub"><input class="demo-position" type="range" min="0" max="${ARROW.duration}" step="100" value="0" aria-label="歌曲播放位置"><div><output class="demo-elapsed">0:00</output><span class="demo-timing">逐行歌词 · 真实时间轴</span><span class="demo-duration">3:08</span></div></div>
-    <div class="demo-controls"><button type="button" class="demo-play" aria-label="试听 arrow" disabled>${playIcon}<span>网易云试听</span></button><button type="button" class="demo-silent" disabled>无声预览</button><label class="demo-file-label" tabindex="0" role="button" aria-label="选择本地音频">本地音频<input class="demo-file" type="file" accept="audio/*,.mp3,.m4a,.flac,.ogg,.wav" tabindex="-1" hidden></label></div>
-    <p class="demo-status" role="status">选择本机《arrow》音频同步试听，也可尝试网易云外链。</p>
+    <div class="demo-options"><label>构图<select class="demo-layout" aria-label="歌词构图"><option value="auto">自动</option><option value="hero">副歌大字</option><option value="caption">主歌窗口</option></select></label><label class="demo-size-label">舞台<input class="demo-size" type="range" min="36" max="60" step="1" value="48" aria-label="舞台大小"></label><button type="button" class="demo-restart" aria-label="回到歌曲开头">↺</button></div>
+    <div class="demo-scrub"><input class="demo-position" type="range" min="0" max="${HEAVENLY.duration}" step="100" value="0" aria-label="歌曲播放位置"><div><output class="demo-elapsed">0:00</output><span class="demo-timing">逐行歌词 · 真实时间轴</span><span class="demo-duration">3:11</span></div></div>
+    <div class="demo-controls"><button type="button" class="demo-play" aria-label="试听 Heavenly Me" disabled>${playIcon}<span>网易云试听</span></button><button type="button" class="demo-silent" disabled>无声预览</button><label class="demo-file-label" tabindex="0" role="button" aria-label="选择本地音频">本地音频<input class="demo-file" type="file" accept="audio/*,.mp3,.m4a,.flac,.ogg,.wav" tabindex="-1" hidden></label></div>
+    <p class="demo-status" role="status">点击试听《Heavenly Me》，体验晴空终端 III。歌词来自塞壬唱片官网。</p>
   </div>`;
 }
 
@@ -42,9 +45,9 @@ export function mountLyrscapeDemo(root: HTMLElement) {
   let frame = 0, visible = true;
   let disposeRenderer: (() => void) | undefined;
   const state: AppState = {
-    settings: { color: '#fffa00', inactiveColor: '#8c9a82', gradientEnabled: false, gradientStart: '#c3b5ff', gradientEnd: '#ff9fd4', gradientAngle: 90, fontFamily: 'WorkshopJP, Noto, sans-serif', fontSize: 27, fontWeight: 700, textAlign: 'left', lineHeight: 1.5, shadow: 0, backgroundOpacity: 0, showTranslation: true, showNextLine: true },
-    plugins: { rendererId: 'official.renderer.text', enabled: {}, configs: {} } as AppState['plugins'],
-    track: { title: 'arrow', artists: ['トゲナシトゲアリ'], durationMs: ARROW.duration },
+    settings: { color: '#fffa00', inactiveColor: '#8c9a82', gradientEnabled: false, gradientStart: '#c3b5ff', gradientEnd: '#ff9fd4', gradientAngle: 90, fontFamily: 'Noto, sans-serif', fontSize: 48, fontWeight: 700, textAlign: 'left', lineHeight: 1.5, shadow: 0, backgroundOpacity: 0, showTranslation: true, showNextLine: true },
+    plugins: { rendererId: 'official.renderer.pv-halo3', enabled: {}, configs: { 'official.renderer.pv-halo3': { layout: 'auto', flash: false } } } as AppState['plugins'],
+    track: { title: 'Heavenly Me', artists: ['AIYUE blessed : 理名'], durationMs: HEAVENLY.duration },
     playback: { positionMs: 0, playing: false, observedAtMonoMs: performance.now(), rate: 1 },
     lyrics: { timingMode: 'line', lines: [] },
     connection: { status: 'stopped', clients: 0, port: 0 }, adapterId: 'demo',
@@ -55,7 +58,8 @@ export function mountLyrscapeDemo(root: HTMLElement) {
     if (mode === 'audio' && audio.readyState > 0) return audio.currentTime * 1000;
     return timeline.position(state);
   } };
-  const renderer = createDomRenderer({ frame(element, _state, clock) { element.dataset.activeLine = String(clock.index); } });
+  const profile = pvProfiles.find(profile => profile.style === 'halo3')!;
+  const renderer = createPvStage(halo3Style, profile.id, pvFields(profile));
   const isPlaying = () => mode === 'audio' ? !audio.paused && !audio.ended && audio.readyState > 0 : mode === 'silent' && state.playback.playing;
   function sample(position = clock.position(state), playing = false) {
     state.playback = { ...state.playback, positionMs: position, observedAtMonoMs: performance.now(), playing };
@@ -65,7 +69,7 @@ export function mountLyrscapeDemo(root: HTMLElement) {
     root.dataset.audioSource = source;
     const playing = mode === 'audio' && isPlaying();
     play.innerHTML = `${playing ? pauseIcon : playIcon}<span>${playing ? '暂停' : source === 'local' ? '播放本地' : '网易云试听'}</span>`;
-    play.setAttribute('aria-label', playing ? '暂停 arrow' : source === 'local' ? '播放本地 arrow' : '试听 arrow');
+    play.setAttribute('aria-label', playing ? '暂停 Heavenly Me' : source === 'local' ? '播放本地 Heavenly Me' : '试听 Heavenly Me');
     silent.textContent = mode === 'silent' && isPlaying() ? '暂停预览' : '无声预览';
     silent.setAttribute('aria-pressed', String(mode === 'silent' && isPlaying()));
     root.classList.toggle('demo-is-playing', isPlaying());
@@ -74,12 +78,13 @@ export function mountLyrscapeDemo(root: HTMLElement) {
     frame = 0;
     if (disposed) return;
     const at = clock.position(state);
-    if (mode === 'silent' && state.playback.playing && at >= (state.track.durationMs || ARROW.duration)) {
+    stage.dataset.activeLine = String(activeLine(state.lyrics.lines, at));
+    if (mode === 'silent' && state.playback.playing && at >= (state.track.durationMs || HEAVENLY.duration)) {
       sample(at, false); status.textContent = '预览已结束，可以拖动时间轴或回到开头。'; controls();
     }
     positionInput.value = String(at);
     root.querySelector('output')!.textContent = timeLabel(at);
-    positionInput.style.setProperty('--position', `${at / (state.track.durationMs || ARROW.duration) * 100}%`);
+    positionInput.style.setProperty('--position', `${at / (state.track.durationMs || HEAVENLY.duration) * 100}%`);
     if (visible && !document.hidden) frame = requestAnimationFrame(draw);
   }
   function schedule() { if (!frame && !disposed && visible && !document.hidden) frame = requestAnimationFrame(draw); }
@@ -110,7 +115,7 @@ export function mountLyrscapeDemo(root: HTMLElement) {
     if (mode === 'audio' && !audio.paused) { audio.pause(); return; }
     const at = clock.position(state); sample(at, false);
     mode = 'audio'; const epoch = ++generation;
-    if (!audio.src) audio.src = objectUrl || ARROW.stream;
+    if (!audio.src) audio.src = objectUrl || HEAVENLY.stream;
     if (audio.readyState > 0) audio.currentTime = at / 1000;
     status.textContent = source === 'netease' ? '正在连接网易云音源…' : '正在打开本地音频…';
     controls(); schedule();
@@ -121,7 +126,7 @@ export function mountLyrscapeDemo(root: HTMLElement) {
     if (!initialized) return;
     const at = clock.position(state), shouldPlay = !(mode === 'silent' && state.playback.playing);
     mode = 'silent'; ++generation; audio.pause(); sample(at, shouldPlay);
-    status.textContent = shouldPlay ? '无声预览 · 使用固定 LRC 的原始逐行时间轴，不播放音频。' : '无声预览已暂停。';
+    status.textContent = shouldPlay ? '无声预览 · 使用官网 LRC 的原始逐行时间轴，不播放音频。' : '无声预览已暂停。';
     controls(); schedule();
   });
   positionInput.addEventListener('input', () => {
@@ -134,11 +139,8 @@ export function mountLyrscapeDemo(root: HTMLElement) {
     if (mode === 'audio' && audio.readyState > 0) audio.currentTime = 0;
     sample(0, mode === 'silent' && state.playback.playing); schedule();
   });
-  root.querySelector<HTMLSelectElement>('.demo-palette')!.addEventListener('change', event => {
-    const choice = (event.target as HTMLSelectElement).value;
-    state.settings.gradientEnabled = choice === 'aurora';
-    state.settings.color = choice === 'white' ? '#f3f5ef' : '#fffa00';
-    root.dataset.palette = choice;
+  root.querySelector<HTMLSelectElement>('.demo-layout')!.addEventListener('change', event => {
+    state.plugins.configs[profile.id] = { ...state.plugins.configs[profile.id], layout: (event.target as HTMLSelectElement).value };
   });
   root.querySelector<HTMLInputElement>('.demo-size')!.addEventListener('input', event => { state.settings.fontSize = Number((event.target as HTMLInputElement).value); });
   const fileInput = root.querySelector<HTMLInputElement>('.demo-file')!;
@@ -160,13 +162,13 @@ export function mountLyrscapeDemo(root: HTMLElement) {
   }); observer.observe(root);
   function visibility() { if (document.hidden) { disposeRenderer?.(); disposeRenderer = undefined; } else { mountRenderer(); schedule(); } }
   document.addEventListener('visibilitychange', visibility);
-  fetch('/demo/arrow.lrc', { signal: request.signal }).then(response => { if (!response.ok) throw new Error('Lyric file unavailable'); return response.text(); }).then(text => {
+  fetch('https://web.hycdn.cn/siren/lyric/20250430/cfd84e70b19dc9a47fdf3d4c00341a63.lrc', { signal: request.signal, referrerPolicy: 'no-referrer' }).then(response => { if (!response.ok) throw new Error('Lyric file unavailable'); return response.text(); }).then(text => {
     if (disposed) return;
-    state.lyrics = parseLyrics(text, 'arrow.lrc'); initialized = true;
+    state.lyrics = parseLyrics(text, 'Heavenly Me.lrc'); initialized = true;
     root.dataset.lyricLines = String(state.lyrics.lines.length); root.dataset.lyricMode = state.lyrics.timingMode; root.dataset.ready = 'true';
     play.disabled = silent.disabled = false;
     mountRenderer(); schedule(); controls();
-    void document.fonts.load('700 27px WorkshopJP', text).catch(() => {});
+    void document.fonts.load('900 48px "Noto Sans JP"', text).catch(() => {});
   }).catch(() => { if (!disposed) status.textContent = '歌词暂时无法载入，请刷新页面再试。'; });
   return { dispose() {
     if (disposed) return;

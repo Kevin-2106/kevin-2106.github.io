@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-26",
+  "method": "Fresh visible UI, idle, no game launched. 13 process-tree samples every ~5 seconds; median. Private Bytes sum; Working Set shown separately. Shared pages can be counted repeatedly in Working Set.",
+  "officialVersion": "2.6.2",
+  "officialAutoChildren": [
+    "aipan70.exe",
+    "newAIPan.exe"
+  ],
+  "liteConfig": "Isolated data directory with real 61-game catalog; auto start and updates disabled. No game worker requested.",
+  "samples": 13,
+  "official": {
+    "private": 237.7,
+    "workingSet": 532.3,
+    "processes": 5
+  },
+  "lite": {
+    "private": 31.5,
+    "workingSet": 59.4,
+    "processes": 2
+  },
+  "privateReductionPercent": 86.7
+}

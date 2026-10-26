@@ -32,12 +32,14 @@ npm run dev
 
 ## 可运行的作品体验
 
-Lyrscape 卡片使用项目生产版 DOM renderer、LRC/TTML parser 与 timeline，来源及适配记录见 `src/vendor/lyrscape/PROVENANCE.json`。固定歌词位于 `public/demo/arrow.lrc`，来自站点所有者的本机文件。没有打包歌曲音频，也没有从网络抓取歌词。歌词为逐行格式，不虚构逐字时间戳。
+Lyrscape 卡片复用生产版晴空终端 III（halo3）、PV stage、绘制依赖、LRC parser 与 timeline。按语言选字体、逐帧进退场与副歌构图均保留原逻辑；来源、hash 和 Web 适配见 `src/vendor/lyrscape/PROVENANCE.json`。
 
-播放器直接使用 HTMLAudioElement.currentTime 驱动歌词，缓冲时不会自行前进；暂停、拖动、重播均同步。网易云《arrow》官方外链当前不可用，界面如实提示，并提供网易云收听入口、本地音频和明确标注的无声预览。本地文件只创建 blob URL，不上传；离开作品筛选时释放音频与渲染器。
+《Heavenly Me》使用网易云匿名外链 id=2699629221，HTMLAudioElement.currentTime 为播放时钟；没有打包音频。歌词运行时从塞壬唱片官方 CDN 载入（无 Referer，CDN 公开允许 CORS），不打包歌词全文。外链失败会如实提示；可选本地音频或明确标注的无声预览。本地音频不会上传，切换作品筛选时释放资源。
 
 BakoPacker 作品档案可主动载入真实在线编辑器并导出资源包，首页不预加载 iframe。
 
-`LOCAL_ARROW_AUDIO` 可指向本机所选歌曲文件，用于额外的真实音频浏览器检查；测试不会提交该路径或文件。
+`npm test` 包含真实外链播放、seek 与 Halo3 构图切换。`LOCAL_HEAVENLY_AUDIO` 可指定拥有者本机音频，做可选的额外播放检查。
 
-修改固定日语歌词后，可运行 `npm run fonts:ja` 重建日文字形子集，默认读取相邻 Lyrscape 安装的 @fontsource/noto-sans-jp；也可用 --source 指定 Lyrscape 目录。再运行 npm run fonts 更新中文界面字形。
+北通卡片展示官方启动器到精简管理器的关系示意，非软件截图。`public/betop-memory.json` 记录 2026-10-26 的本机空闲采样条件、13 次中位数、完整进程树 Private Bytes 与单独的 Working Set；不把空闲管理开销解释为游戏效果等价或长时间稳定性。
+
+界面中文字体通过 `npm run fonts` 重建。Halo3 字体来自相邻 Lyrscape 安装的 @fontsource，静态注册其原始 family 与 unicode-range，许可随文件发布。

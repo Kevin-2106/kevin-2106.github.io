@@ -28,7 +28,8 @@ test('category filter keeps priority order and actual public links', async ({ pa
   await page.getByRole('button', { name: '硬件 03', exact: true }).click();
   await expect(page.locator('.project-name h3')).toHaveText(['北通轻智控', '门钥', 'FLTwink']);
   const local = page.locator('[data-project="betop"]');
-  await expect(local.locator('a')).toHaveCount(0);
+  await expect(local.locator('a')).toHaveCount(1);
+  await expect(local.locator('a')).toHaveAttribute('href', '/betop-memory.json');
   await expect(local).toContainText('尚未公开');
   await page.getByRole('button', { name: '全部 08', exact: true }).click();
   await expect(page.locator('.project-name h3')).toHaveText(order);
@@ -62,4 +63,15 @@ test('keyboard focus is contained in the project dialog', async ({ page }) => {
     await page.keyboard.press('Tab');
     expect(await page.evaluate(() => document.querySelector('dialog')!.contains(document.activeElement))).toBe(true);
   }
+});
+
+test('project context and idle memory evidence remain visible', async ({ page }) => {
+  await page.goto('/#projects');
+  await expect(page.locator('[data-project="lyrscape"]')).toContainText('Web · Windows 桌面版');
+  const comparison = page.locator('.betop-comparison');
+  await expect(comparison).toContainText('237.7');
+  await expect(comparison).toContainText('31.5');
+  await comparison.locator('summary').click();
+  await expect(comparison).toContainText('关闭自动启停和更新');
+  await expect(comparison).toContainText('不代表游戏运行中效果相同');
 });

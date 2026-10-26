@@ -1,0 +1,831 @@
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-64-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-64-500-normal.woff) format('woff');
+  unicode-range:U+586B;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-66-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-66-500-normal.woff) format('woff');
+  unicode-range:U+714C;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-77-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-77-500-normal.woff) format('woff');
+  unicode-range:U+9F13;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-78-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-78-500-normal.woff) format('woff');
+  unicode-range:U+9192;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-83-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-83-500-normal.woff) format('woff');
+  unicode-range:U+7948;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-85-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-85-500-normal.woff) format('woff');
+  unicode-range:U+7FFC;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-86-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-86-500-normal.woff) format('woff');
+  unicode-range:U+95C7;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-88-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-88-500-normal.woff) format('woff');
+  unicode-range:U+6094;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-90-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-90-500-normal.woff) format('woff');
+  unicode-range:U+6687,U+9CF4;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-94-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-94-500-normal.woff) format('woff');
+  unicode-range:U+7720,U+77AC;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-95-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-95-500-normal.woff) format('woff');
+  unicode-range:U+62B1;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-96-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-96-500-normal.woff) format('woff');
+  unicode-range:U+50B7,U+58CA;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-98-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-98-500-normal.woff) format('woff');
+  unicode-range:U+541B,U+60D1,U+63CF;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-99-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-99-500-normal.woff) format('woff');
+  unicode-range:U+6697,U+7FBD;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-100-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-100-500-normal.woff) format('woff');
+  unicode-range:U+4E08,U+7247;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-102-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-102-500-normal.woff) format('woff');
+  unicode-range:U+4F3C,U+5922;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-103-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-103-500-normal.woff) format('woff');
+  unicode-range:U+5B88,U+60A9,U+6483;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-104-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-104-500-normal.woff) format('woff');
+  unicode-range:U+547D,U+795D,U+98DB;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-105-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-105-500-normal.woff) format('woff');
+  unicode-range:U+7DD2,U+899A,U+8AB0;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-106-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-106-500-normal.woff) format('woff');
+  unicode-range:U+51E6;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-107-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-107-500-normal.woff) format('woff');
+  unicode-range:U+629C;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-108-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-108-500-normal.woff) format('woff');
+  unicode-range:U+58F0,U+592B,U+6D88,U+7B11,U+9854;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-109-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-109-500-normal.woff) format('woff');
+  unicode-range:U+5E0C,U+805E,U+88C5;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-110-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-110-500-normal.woff) format('woff');
+  unicode-range:U+5F85,U+653E,U+7531,U+798F;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-111-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-111-500-normal.woff) format('woff');
+  unicode-range:U+2B,U+5149,U+672A,U+9858;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-112-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-112-500-normal.woff) format('woff');
+  unicode-range:U+4F55,U+63A2,U+7A7A;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-113-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-113-500-normal.woff) format('woff');
+  unicode-range:U+671B;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-114-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-114-500-normal.woff) format('woff');
+  unicode-range:U+4FE1,U+5F15,U+611B,U+671F,U+6765,U+7ACB;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-115-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-115-500-normal.woff) format('woff');
+  unicode-range:U+3080,U+697D,U+9078;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-116-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-116-500-normal.woff) format('woff');
+  unicode-range:U+4ECA,U+4ED8,U+53D6,U+624B,U+81EA,U+90E8,U+91D1;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-117-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-117-500-normal.woff) format('woff');
+  unicode-range:U+4E,U+4E00,U+4E8B,U+5168,U+52D5,U+5408,U+5927,U+65B0,U+6C17,U+751F,U+76EE,U+884C,U+9593;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-118-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-118-500-normal.woff) format('woff');
+  unicode-range:U+2D,U+2E,U+2F,U+30,U+31,U+32,U+33,U+34,U+35,U+36,U+37,U+38,U+39,U+3A,U+41,U+42,U+43,U+44,U+45,U+46,U+47,U+48,U+49,U+4A,U+4B,U+4C,U+4D,U+4F,U+50,U+51,U+52,U+53,U+54,U+55,U+56,U+57,U+58,U+59,U+5A,U+5B,U+5D,U+61,U+62,U+63,U+64,U+65,U+66,U+67,U+68,U+69,U+6A,U+6B,U+6C,U+6D,U+6E,U+6F,U+70,U+71,U+72,U+73,U+74,U+75,U+76,U+77,U+78,U+79,U+7A,U+65E5;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-119-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-119-500-normal.woff) format('woff');
+  unicode-range:U+20,U+3001,U+3041,U+3042,U+3044,U+3046,U+3047,U+3048,U+304B,U+304C,U+304D,U+3051,U+3053,U+3055,U+3057,U+3058,U+3059,U+305A,U+305B,U+305D,U+305F,U+3060,U+3061,U+3063,U+3064,U+3066,U+3067,U+3068,U+3069,U+306A,U+306B,U+306D,U+306E,U+306F,U+3070,U+3073,U+3078,U+307B,U+307E,U+3081,U+3082,U+3084,U+3088,U+3089,U+308A,U+308B,U+308C,U+308D,U+3092,U+3093,U+30A2,U+30A4,U+30C3,U+30D1,U+30D7,U+30EB;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(/fonts/halo3/noto-sans-jp-latin-500-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-latin-500-normal.woff) format('woff');
+  unicode-range:U+A,U+20,U+2B,U+2D,U+2E,U+2F,U+30,U+31,U+32,U+33,U+34,U+35,U+36,U+37,U+38,U+39,U+3A,U+41,U+42,U+43,U+44,U+45,U+46,U+47,U+48,U+49,U+4A,U+4B,U+4C,U+4D,U+4E,U+4F,U+50,U+51,U+52,U+53,U+54,U+55,U+56,U+57,U+58,U+59,U+5A,U+5B,U+5D,U+61,U+62,U+63,U+64,U+65,U+66,U+67,U+68,U+69,U+6A,U+6B,U+6C,U+6D,U+6E,U+6F,U+70,U+71,U+72,U+73,U+74,U+75,U+76,U+77,U+78,U+79,U+7A;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-64-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-64-700-normal.woff) format('woff');
+  unicode-range:U+586B;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-66-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-66-700-normal.woff) format('woff');
+  unicode-range:U+714C;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-77-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-77-700-normal.woff) format('woff');
+  unicode-range:U+9F13;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-78-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-78-700-normal.woff) format('woff');
+  unicode-range:U+9192;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-83-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-83-700-normal.woff) format('woff');
+  unicode-range:U+7948;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-85-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-85-700-normal.woff) format('woff');
+  unicode-range:U+7FFC;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-86-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-86-700-normal.woff) format('woff');
+  unicode-range:U+95C7;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-88-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-88-700-normal.woff) format('woff');
+  unicode-range:U+6094;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-90-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-90-700-normal.woff) format('woff');
+  unicode-range:U+6687,U+9CF4;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-94-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-94-700-normal.woff) format('woff');
+  unicode-range:U+7720,U+77AC;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-95-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-95-700-normal.woff) format('woff');
+  unicode-range:U+62B1;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-96-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-96-700-normal.woff) format('woff');
+  unicode-range:U+50B7,U+58CA;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-98-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-98-700-normal.woff) format('woff');
+  unicode-range:U+541B,U+60D1,U+63CF;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-99-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-99-700-normal.woff) format('woff');
+  unicode-range:U+6697,U+7FBD;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-100-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-100-700-normal.woff) format('woff');
+  unicode-range:U+4E08,U+7247;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-102-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-102-700-normal.woff) format('woff');
+  unicode-range:U+4F3C,U+5922;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-103-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-103-700-normal.woff) format('woff');
+  unicode-range:U+5B88,U+60A9,U+6483;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-104-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-104-700-normal.woff) format('woff');
+  unicode-range:U+547D,U+795D,U+98DB;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-105-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-105-700-normal.woff) format('woff');
+  unicode-range:U+7DD2,U+899A,U+8AB0;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-106-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-106-700-normal.woff) format('woff');
+  unicode-range:U+51E6;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-107-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-107-700-normal.woff) format('woff');
+  unicode-range:U+629C;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-108-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-108-700-normal.woff) format('woff');
+  unicode-range:U+58F0,U+592B,U+6D88,U+7B11,U+9854;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-109-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-109-700-normal.woff) format('woff');
+  unicode-range:U+5E0C,U+805E,U+88C5;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-110-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-110-700-normal.woff) format('woff');
+  unicode-range:U+5F85,U+653E,U+7531,U+798F;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-111-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-111-700-normal.woff) format('woff');
+  unicode-range:U+2B,U+5149,U+672A,U+9858;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-112-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-112-700-normal.woff) format('woff');
+  unicode-range:U+4F55,U+63A2,U+7A7A;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-113-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-113-700-normal.woff) format('woff');
+  unicode-range:U+671B;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-114-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-114-700-normal.woff) format('woff');
+  unicode-range:U+4FE1,U+5F15,U+611B,U+671F,U+6765,U+7ACB;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-115-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-115-700-normal.woff) format('woff');
+  unicode-range:U+3080,U+697D,U+9078;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-116-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-116-700-normal.woff) format('woff');
+  unicode-range:U+4ECA,U+4ED8,U+53D6,U+624B,U+81EA,U+90E8,U+91D1;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-117-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-117-700-normal.woff) format('woff');
+  unicode-range:U+4E,U+4E00,U+4E8B,U+5168,U+52D5,U+5408,U+5927,U+65B0,U+6C17,U+751F,U+76EE,U+884C,U+9593;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-118-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-118-700-normal.woff) format('woff');
+  unicode-range:U+2D,U+2E,U+2F,U+30,U+31,U+32,U+33,U+34,U+35,U+36,U+37,U+38,U+39,U+3A,U+41,U+42,U+43,U+44,U+45,U+46,U+47,U+48,U+49,U+4A,U+4B,U+4C,U+4D,U+4F,U+50,U+51,U+52,U+53,U+54,U+55,U+56,U+57,U+58,U+59,U+5A,U+5B,U+5D,U+61,U+62,U+63,U+64,U+65,U+66,U+67,U+68,U+69,U+6A,U+6B,U+6C,U+6D,U+6E,U+6F,U+70,U+71,U+72,U+73,U+74,U+75,U+76,U+77,U+78,U+79,U+7A,U+65E5;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-119-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-119-700-normal.woff) format('woff');
+  unicode-range:U+20,U+3001,U+3041,U+3042,U+3044,U+3046,U+3047,U+3048,U+304B,U+304C,U+304D,U+3051,U+3053,U+3055,U+3057,U+3058,U+3059,U+305A,U+305B,U+305D,U+305F,U+3060,U+3061,U+3063,U+3064,U+3066,U+3067,U+3068,U+3069,U+306A,U+306B,U+306D,U+306E,U+306F,U+3070,U+3073,U+3078,U+307B,U+307E,U+3081,U+3082,U+3084,U+3088,U+3089,U+308A,U+308B,U+308C,U+308D,U+3092,U+3093,U+30A2,U+30A4,U+30C3,U+30D1,U+30D7,U+30EB;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(/fonts/halo3/noto-sans-jp-latin-700-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-latin-700-normal.woff) format('woff');
+  unicode-range:U+A,U+20,U+2B,U+2D,U+2E,U+2F,U+30,U+31,U+32,U+33,U+34,U+35,U+36,U+37,U+38,U+39,U+3A,U+41,U+42,U+43,U+44,U+45,U+46,U+47,U+48,U+49,U+4A,U+4B,U+4C,U+4D,U+4E,U+4F,U+50,U+51,U+52,U+53,U+54,U+55,U+56,U+57,U+58,U+59,U+5A,U+5B,U+5D,U+61,U+62,U+63,U+64,U+65,U+66,U+67,U+68,U+69,U+6A,U+6B,U+6C,U+6D,U+6E,U+6F,U+70,U+71,U+72,U+73,U+74,U+75,U+76,U+77,U+78,U+79,U+7A;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-64-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-64-900-normal.woff) format('woff');
+  unicode-range:U+586B;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-66-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-66-900-normal.woff) format('woff');
+  unicode-range:U+714C;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-77-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-77-900-normal.woff) format('woff');
+  unicode-range:U+9F13;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-78-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-78-900-normal.woff) format('woff');
+  unicode-range:U+9192;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-83-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-83-900-normal.woff) format('woff');
+  unicode-range:U+7948;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-85-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-85-900-normal.woff) format('woff');
+  unicode-range:U+7FFC;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-86-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-86-900-normal.woff) format('woff');
+  unicode-range:U+95C7;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-88-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-88-900-normal.woff) format('woff');
+  unicode-range:U+6094;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-90-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-90-900-normal.woff) format('woff');
+  unicode-range:U+6687,U+9CF4;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-94-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-94-900-normal.woff) format('woff');
+  unicode-range:U+7720,U+77AC;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-95-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-95-900-normal.woff) format('woff');
+  unicode-range:U+62B1;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-96-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-96-900-normal.woff) format('woff');
+  unicode-range:U+50B7,U+58CA;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-98-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-98-900-normal.woff) format('woff');
+  unicode-range:U+541B,U+60D1,U+63CF;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-99-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-99-900-normal.woff) format('woff');
+  unicode-range:U+6697,U+7FBD;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-100-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-100-900-normal.woff) format('woff');
+  unicode-range:U+4E08,U+7247;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-102-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-102-900-normal.woff) format('woff');
+  unicode-range:U+4F3C,U+5922;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-103-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-103-900-normal.woff) format('woff');
+  unicode-range:U+5B88,U+60A9,U+6483;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-104-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-104-900-normal.woff) format('woff');
+  unicode-range:U+547D,U+795D,U+98DB;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-105-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-105-900-normal.woff) format('woff');
+  unicode-range:U+7DD2,U+899A,U+8AB0;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-106-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-106-900-normal.woff) format('woff');
+  unicode-range:U+51E6;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-107-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-107-900-normal.woff) format('woff');
+  unicode-range:U+629C;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-108-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-108-900-normal.woff) format('woff');
+  unicode-range:U+58F0,U+592B,U+6D88,U+7B11,U+9854;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-109-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-109-900-normal.woff) format('woff');
+  unicode-range:U+5E0C,U+805E,U+88C5;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-110-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-110-900-normal.woff) format('woff');
+  unicode-range:U+5F85,U+653E,U+7531,U+798F;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-111-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-111-900-normal.woff) format('woff');
+  unicode-range:U+2B,U+5149,U+672A,U+9858;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-112-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-112-900-normal.woff) format('woff');
+  unicode-range:U+4F55,U+63A2,U+7A7A;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-113-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-113-900-normal.woff) format('woff');
+  unicode-range:U+671B;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-114-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-114-900-normal.woff) format('woff');
+  unicode-range:U+4FE1,U+5F15,U+611B,U+671F,U+6765,U+7ACB;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-115-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-115-900-normal.woff) format('woff');
+  unicode-range:U+3080,U+697D,U+9078;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-116-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-116-900-normal.woff) format('woff');
+  unicode-range:U+4ECA,U+4ED8,U+53D6,U+624B,U+81EA,U+90E8,U+91D1;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-117-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-117-900-normal.woff) format('woff');
+  unicode-range:U+4E,U+4E00,U+4E8B,U+5168,U+52D5,U+5408,U+5927,U+65B0,U+6C17,U+751F,U+76EE,U+884C,U+9593;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-118-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-118-900-normal.woff) format('woff');
+  unicode-range:U+2D,U+2E,U+2F,U+30,U+31,U+32,U+33,U+34,U+35,U+36,U+37,U+38,U+39,U+3A,U+41,U+42,U+43,U+44,U+45,U+46,U+47,U+48,U+49,U+4A,U+4B,U+4C,U+4D,U+4F,U+50,U+51,U+52,U+53,U+54,U+55,U+56,U+57,U+58,U+59,U+5A,U+5B,U+5D,U+61,U+62,U+63,U+64,U+65,U+66,U+67,U+68,U+69,U+6A,U+6B,U+6C,U+6D,U+6E,U+6F,U+70,U+71,U+72,U+73,U+74,U+75,U+76,U+77,U+78,U+79,U+7A,U+65E5;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-119-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-119-900-normal.woff) format('woff');
+  unicode-range:U+20,U+3001,U+3041,U+3042,U+3044,U+3046,U+3047,U+3048,U+304B,U+304C,U+304D,U+3051,U+3053,U+3055,U+3057,U+3058,U+3059,U+305A,U+305B,U+305D,U+305F,U+3060,U+3061,U+3063,U+3064,U+3066,U+3067,U+3068,U+3069,U+306A,U+306B,U+306D,U+306E,U+306F,U+3070,U+3073,U+3078,U+307B,U+307E,U+3081,U+3082,U+3084,U+3088,U+3089,U+308A,U+308B,U+308C,U+308D,U+3092,U+3093,U+30A2,U+30A4,U+30C3,U+30D1,U+30D7,U+30EB;
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(/fonts/halo3/noto-sans-jp-latin-900-normal.woff2) format('woff2'), url(/fonts/halo3/noto-sans-jp-latin-900-normal.woff) format('woff');
+  unicode-range:U+A,U+20,U+2B,U+2D,U+2E,U+2F,U+30,U+31,U+32,U+33,U+34,U+35,U+36,U+37,U+38,U+39,U+3A,U+41,U+42,U+43,U+44,U+45,U+46,U+47,U+48,U+49,U+4A,U+4B,U+4C,U+4D,U+4E,U+4F,U+50,U+51,U+52,U+53,U+54,U+55,U+56,U+57,U+58,U+59,U+5A,U+5B,U+5D,U+61,U+62,U+63,U+64,U+65,U+66,U+67,U+68,U+69,U+6A,U+6B,U+6C,U+6D,U+6E,U+6F,U+70,U+71,U+72,U+73,U+74,U+75,U+76,U+77,U+78,U+79,U+7A;
+}
+@font-face {
+  font-family: 'Fusion Pixel 12px Proportional JP';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(/fonts/halo3/fusion-pixel-12px-proportional-jp-latin-400-normal.woff2) format('woff2'), url(/fonts/halo3/fusion-pixel-12px-proportional-jp-latin-400-normal.woff) format('woff');
+unicode-range:U+A,U+20,U+2B,U+2D,U+2E,U+2F,U+30,U+31,U+32,U+33,U+34,U+35,U+36,U+37,U+38,U+39,U+3A,U+41,U+42,U+43,U+44,U+45,U+46,U+47,U+48,U+49,U+4A,U+4B,U+4C,U+4D,U+4E,U+4F,U+50,U+51,U+52,U+53,U+54,U+55,U+56,U+57,U+58,U+59,U+5A,U+5B,U+5D,U+61,U+62,U+63,U+64,U+65,U+66,U+67,U+68,U+69,U+6A,U+6B,U+6C,U+6D,U+6E,U+6F,U+70,U+71,U+72,U+73,U+74,U+75,U+76,U+77,U+78,U+79,U+7A,U+3001,U+3041,U+3042,U+3044,U+3046,U+3047,U+3048,U+304B,U+304C,U+304D,U+3051,U+3053,U+3055,U+3057,U+3058,U+3059,U+305A,U+305B,U+305D,U+305F,U+3060,U+3061,U+3063,U+3064,U+3066,U+3067,U+3068,U+3069,U+306A,U+306B,U+306D,U+306E,U+306F,U+3070,U+3073,U+3078,U+307B,U+307E,U+3080,U+3081,U+3082,U+3084,U+3088,U+3089,U+308A,U+308B,U+308C,U+308D,U+3092,U+3093,U+30A2,U+30A4,U+30C3,U+30D1,U+30D7,U+30EB,U+4E00,U+4E08,U+4E8B,U+4ECA,U+4ED8,U+4F3C,U+4F55,U+4FE1,U+50B7,U+5149,U+5168,U+51E6,U+52D5,U+53D6,U+5408,U+541B,U+547D,U+586B,U+58CA,U+58F0,U+5922,U+5927,U+592B,U+5B88,U+5E0C,U+5F15,U+5F85,U+6094,U+60A9,U+60D1,U+611B,U+624B,U+629C,U+62B1,U+63A2,U+63CF,U+6483,U+653E,U+65B0,U+65E5,U+6687,U+6697,U+671B,U+671F,U+672A,U+6765,U+697D,U+6C17,U+6D88,U+714C,U+7247,U+751F,U+7531,U+76EE,U+7720,U+77AC,U+7948,U+795D,U+798F,U+7A7A,U+7ACB,U+7B11,U+7DD2,U+7FBD,U+7FFC,U+805E,U+81EA,U+884C,U+88C5,U+899A,U+8AB0,U+9078,U+90E8,U+9192,U+91D1,U+9593,U+95C7,U+9854,U+9858,U+98DB,U+9CF4,U+9F13;}
+@font-face {
+  font-family: 'Share Tech Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(/fonts/halo3/share-tech-mono-latin-400-normal.woff2) format('woff2'), url(/fonts/halo3/share-tech-mono-latin-400-normal.woff) format('woff');
+  unicode-range:U+A,U+20,U+2B,U+2D,U+2E,U+2F,U+30,U+31,U+32,U+33,U+34,U+35,U+36,U+37,U+38,U+39,U+3A,U+41,U+42,U+43,U+44,U+45,U+46,U+47,U+48,U+49,U+4A,U+4B,U+4C,U+4D,U+4E,U+4F,U+50,U+51,U+52,U+53,U+54,U+55,U+56,U+57,U+58,U+59,U+5A,U+5B,U+5D,U+61,U+62,U+63,U+64,U+65,U+66,U+67,U+68,U+69,U+6A,U+6B,U+6C,U+6D,U+6E,U+6F,U+70,U+71,U+72,U+73,U+74,U+75,U+76,U+77,U+78,U+79,U+7A;
+}

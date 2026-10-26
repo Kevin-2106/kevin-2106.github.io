@@ -9,7 +9,8 @@
     "preview": "vite preview --host 127.0.0.1",
     "test": "playwright test",
     "fonts": "uv run --with fonttools --with brotli python scripts/build-fonts.py",
-    "fonts:ja": "uv run --with fonttools --with brotli python scripts/build-japanese-fonts.py"
+    "fonts:ja": "uv run --with fonttools --with brotli python scripts/build-halo-fonts.py",
+    "fonts:halo": "uv run --with fonttools --with brotli python scripts/build-halo-fonts.py"
   },
   "dependencies": {
     "three": "^0.186.1"
